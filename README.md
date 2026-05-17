@@ -2,6 +2,13 @@
 
 A modern weather application built with React that displays real-time weather data using the OpenWeatherMap API. The app supports English and Arabic languages with full RTL/LTR switching.
 
+## 🌐 Live Demo
+[Click Here](https://stellular-medovik-0af210.netlify.app/)
+
+## 📸 Preview
+
+![todo-app-react-mui](image/site.png)
+
 ---
 
 ## 🚀 Features
