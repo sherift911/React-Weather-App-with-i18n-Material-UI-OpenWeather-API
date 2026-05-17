@@ -1,0 +1,14 @@
+{
+    "Egypt": "مصر",
+    "min": "الصغرى",
+    "max":"الكبرى",
+    "clear sky": "سماء صافية",
+    "few clouds": "بعض السحب",
+    "scattered clouds": "سحب متفرقة",
+    "broken clouds": "غيوم متفرقة",
+    "shower rain": "زخات مطر",
+    "rain": "مطر",
+    "thunderstorm": "عاصفة رعدية",
+    "snow": "ثلج",
+    "mist": "ضباب"
+}
