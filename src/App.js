@@ -10,11 +10,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 //icons
 import CloudIcon from "@mui/icons-material/Cloud";
 //External Libraries
-import axios from "axios";
 import moment from "moment";
+//redux library
+import { useSelector, useDispatch } from "react-redux";
+import { fetchWeather } from "./features/weather/weatherApiSlice";
+//moment library
 import "moment/min/locales";
 import { useTranslation } from "react-i18next";
 moment.locale("en");
@@ -26,17 +30,18 @@ const theme = createTheme({
 });
 
 function App() {
+  //redux
+  const isLoading = useSelector((state) => {
+    return state.weatherApi.isLoading;
+  });
+  const temp = useSelector((state) => {
+    return state.weatherApi.weather;
+  });
+  const dispatch = useDispatch();
   // states
   const { t, i18n } = useTranslation();
   const [local, setLocal] = useState("en");
 
-  const [temp, setTemp] = useState({
-    temperature: null,
-    description: "",
-    min: null,
-    max: null,
-    icon: null,
-  });
   const [timeAndDate, setTimeAndDate] = useState("");
   // start handlers\
   function handleLanguageClick() {
@@ -53,44 +58,8 @@ function App() {
   }
   // end handlers
   useEffect(() => {
-    const controller = new AbortController();
-    axios
-      .get(
-        "https://api.openweathermap.org/data/2.5/weather?lat=26.820553&lon=30.802498&appid=29159dc0e4a4bcbb07dfdc08b5a460b7",
-        {
-          params: {
-            postId: 5,
-          },
-        },
-      )
-      .then((response) => {
-        const responsTemp = Math.round(response.data.main.temp - 272.15);
-        const responsTempMin = Math.round(response.data.main.temp_min - 272.15);
-        const responsTempMax = Math.round(response.data.main.temp_max - 272.15);
-        const responseDes = response.data.weather[0].description;
-        const responseIcon = response.data.weather[0].icon;
-        console.log(
-          responsTemp,
-          responsTempMin,
-          responsTempMax,
-          responseDes,
-          responseIcon,
-        );
-        setTemp({
-          ...temp,
-          temperature: responsTemp,
-          description: responseDes,
-          min: responsTempMin,
-          max: responsTempMax,
-          icon: `https://openweathermap.org/img/wn/${responseIcon}@2x.png`,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    return () => {
-      controller.abort();
-    };
+    //trying redux
+    dispatch(fetchWeather());
   }, []);
   useEffect(() => {
     setTimeAndDate(moment().format("MMMM Do YYYY, h:mm:ss a"));
@@ -167,6 +136,11 @@ function App() {
                         alignItems: "center",
                       }}
                     >
+                      {isLoading ? (
+                        <CircularProgress style={{ color: "white" }} />
+                      ) : (
+                        ""
+                      )}
                       <Typography variant="h1" style={{ textAlign: "end" }}>
                         {temp.temperature}
                       </Typography>
