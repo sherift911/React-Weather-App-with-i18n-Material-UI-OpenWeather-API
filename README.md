@@ -12,15 +12,16 @@ A modern weather application built with React that displays real-time weather da
 ---
 
 🚀 Features
-🌍 Real-time weather data (OpenWeather API)
-🧠 Global state management using Redux Toolkit
-⚡ Async data fetching with createAsyncThunk
-🌐 Multi-language support (English / Arabic)
-🔄 Dynamic language switching
-⏰ Live date & time with Moment.js
-🎨 Material UI responsive design
-📱 RTL / LTR layout support
-🧩 Clean and scalable architecture
+
+* 🌍 Real-time weather data (OpenWeather API)
+* 🧠 Global state management using Redux Toolkit
+* ⚡ Async data fetching with createAsyncThunk
+* 🌐 Multi-language support (English / Arabic)
+* 🔄 Dynamic language switching
+* ⏰ Live date & time with Moment.js
+* 🎨 Material UI responsive design
+* 📱 RTL / LTR layout support
+* 🧩 Clean and scalable architecture
 
 ---
 
