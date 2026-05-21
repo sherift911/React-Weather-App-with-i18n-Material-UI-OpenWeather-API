@@ -3,7 +3,7 @@
 A modern weather application built with React that displays real-time weather data using the OpenWeatherMap API. The app supports English and Arabic languages with full RTL/LTR switching.
 
 ## 🌐 Live Demo
-[Click Here](https://stellular-medovik-0af210.netlify.app/)
+[Click Here](https://luxury-zuccutto-02fc96.netlify.app/)
 
 ## 📸 Preview
 
@@ -11,20 +11,24 @@ A modern weather application built with React that displays real-time weather da
 
 ---
 
-## 🚀 Features
-
-* 🌍 Real-time weather data (OpenWeather API)
-* 🌐 Multi-language support (English / Arabic)
-* 🔄 Dynamic language switching
-* ⏰ Live date & time with Moment.js
-* 🎨 Material UI responsive design
-* 📱 RTL / LTR layout support
+🚀 Features
+🌍 Real-time weather data (OpenWeather API)
+🧠 Global state management using Redux Toolkit
+⚡ Async data fetching with createAsyncThunk
+🌐 Multi-language support (English / Arabic)
+🔄 Dynamic language switching
+⏰ Live date & time with Moment.js
+🎨 Material UI responsive design
+📱 RTL / LTR layout support
+🧩 Clean and scalable architecture
 
 ---
 
 ## 🛠️ Tech Stack
 
 * React.js
+* Redux Toolkit
+* React-Redux
 * Material UI (MUI)
 * Axios
 * react-i18next
@@ -39,11 +43,13 @@ A modern weather application built with React that displays real-time weather da
 src/
 ├── App.js
 ├── index.js
+├── store/
+├── features/
+│   └── weather/
 ├── i18n.js
 ├── styles/
 ├── components/
 └── assets/
-```
 
 ---
 
@@ -80,6 +86,14 @@ The app supports:
 Language switching is handled dynamically using `react-i18next`.
 
 ---
+🧠 State Management (Redux Toolkit)
+
+The app uses Redux Toolkit for:
+
+Centralized weather state
+Async API calls using createAsyncThunk
+Loading state handling
+Clean separation between UI and logic
 
 ## ⚠️ Notes
 
